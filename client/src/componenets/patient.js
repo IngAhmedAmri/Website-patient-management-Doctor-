@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./app.css"
 function Patient({ data, deletePatient}) {
   const handleDelete = (name) => {
     deletePatient(name);
@@ -7,6 +7,7 @@ function Patient({ data, deletePatient}) {
   };
 
   return (
+    <div className='boxes'>
     <>
       {data.map((e) => (
         <div key={e.name}>
@@ -16,10 +17,11 @@ function Patient({ data, deletePatient}) {
           <div>{e.situation}</div>
           <div>{e.medication}</div>
           <div>{e.description}</div>
-          <button onClick={() => handleDelete(e.name)}>delete</button>
+          <button onClick={() => {handleDelete(e.name);window.location.reload(true)}}>delete</button>
         </div>
       ))}
     </>
+    </div>
   );
 }
 

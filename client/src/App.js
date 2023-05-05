@@ -37,7 +37,7 @@ function App() {
   },[])
   return (
    <>
-   <Add addPatient={addPatient} deletePatient={deletePatient}/>
+   <Add addPatient={addPatient} />
    <Patient data={data} deletePatient={deletePatient}/>
    </>
   );

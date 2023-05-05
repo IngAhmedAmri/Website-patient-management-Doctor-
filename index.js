@@ -31,24 +31,27 @@ app.post('/api/patients',(req, res)=>{
 
 
 
-app.put('/api/patients', (req, res) => {
+app.put('/api/patients/:name', (req, res) => {
   const name = req.params.name;
-  const { age, lastvisit, situation, medication, description } = req.body;
+  //const { age, lastvisit, situation, medication, description } = req.body;
   const sql = `UPDATE list_patient SET age=${age}, lastvisit='${lastvisit}', situation='${situation}', medication='${medication}',description='${description}' WHERE name='${name}'`;
   db.query(sql, (err, result) => {
   if(err) res.status(500).send(err);
   res.status(200).send(result);
   })
   })
-
-app.delete('/api/patients/:name', (req, res) => {
-  const name = req.params.name;
-  const sql = `DELETE FROM list_patient WHERE name="${name}"`;
-  db.query(sql,(err, result) => {
-    if(err) res.status(500).send(err);
-    res.status(200).send(result);
-  })
-})
+  app.delete('/api/patients/:name', (req, res) => {
+    const name = req.params.name;
+    const sql = `DELETE FROM list_patient WHERE name="${name}"`;
+    db.query(sql, (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(result);
+      }
+    });
+  });
+  
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
