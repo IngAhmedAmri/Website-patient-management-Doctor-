@@ -43,8 +43,8 @@ app.put('/api/patients', (req, res) => {
 
 app.delete('/api/patients/:name', (req, res) => {
   const name = req.params.name;
-  const sql = `DELETE FROM list_patient WHERE name=?`;
-  db.query(sql, req.params.name,(err, result) => {
+  const sql = `DELETE FROM list_patient WHERE name="${name}"`;
+  db.query(sql,(err, result) => {
     if(err) res.status(500).send(err);
     res.status(200).send(result);
   })

@@ -37,9 +37,8 @@ function App() {
   },[])
   return (
    <>
-   <Add addPatient={addPatient}/>
-   <Patient data={data}/>
-   <editPatient deletePatient={deletePatient}/>
+   <Add addPatient={addPatient} deletePatient={deletePatient}/>
+   <Patient data={data} deletePatient={deletePatient}/>
    </>
   );
 }
