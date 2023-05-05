@@ -1,6 +1,6 @@
 
 const express = require("express");
-const db = require("../crud_mysql/db/conn.js");
+const db = require("./db/conn.js");
 const app = express();
 const port = 5000;
 const cors = require("cors");

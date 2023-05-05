@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 function Add({addPatient}) {
     const[name,setName]=useState("")
     const[age,setAge]=useState("")

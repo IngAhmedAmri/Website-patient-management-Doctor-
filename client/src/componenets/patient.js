@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function patient({data}) {
   return (
     data.map((e)=>(
